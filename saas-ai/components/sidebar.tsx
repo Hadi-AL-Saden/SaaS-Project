@@ -21,6 +21,7 @@ import {
   MusicIcon,
   VideoIcon,
   Settings,
+  FileQuestion
 } from "lucide-react";
 import { usePathname } from "next/navigation";
 
@@ -62,6 +63,12 @@ const routs = [
     color: "text-green-500",
   },
   {
+    label: "PDF Assistant (Coming Soon)",
+    icon: FileQuestion,
+    href: "#",
+    color:"text-red-500",
+  },
+  {
     label: "Settings ",
     icon: Settings,
     href: "/settings",
@@ -91,7 +98,7 @@ export default function Sidebar() {
                 className={cn(
                   "text-sm group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg",
                   pathName === route.href
-                    ? "text-white bg-white/35"
+                    ? "text-white bg-white/10"
                     : "text-zinc-400"
                 )}>
                 <div className="flex items-center flex-1">

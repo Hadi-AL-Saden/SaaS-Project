@@ -11,7 +11,8 @@ import { ArrowRight,
         ImageIcon,
         VideoIcon,
         MusicIcon,
-        Code
+        Code,
+        FileQuestion
         } from "lucide-react"
 
 const tools=[
@@ -50,11 +51,15 @@ const tools=[
     href: "/code",
     color: "text-green-700",
     bgColor:"bg-green-700/10",
-
+  },
+  {
+    label: "PDF Assistant (Coming Soon)",
+    icon: FileQuestion,
+    href: "#",
+    color: "text-red-500",
+    bgColor:"bg-red-700/10",
   },
 ]
-
-
 
 
 export default function DashboardPage(){
@@ -69,12 +74,12 @@ const router =useRouter();
           All what you need just in one cloud
         </p>
       </div>
-      <div className="px-4 md:px-20 lg:px-32 space-y-4">
+      <div className="px-4 md:px-20 lg:px-32 space-y-4 sm:pb-10 md:pb-10" >
         {tools.map((tool) => (
           <Card
           onClick={()=>router.push(tool.href)}
             key={tool.href}
-            className="p-4 border-black/10 flex items-center justify-between hover:shadow-md transition cursor-pointer">
+            className="p-4 border-black/10 flex items-center justify-between hover:shadow-md transition cursor-pointer ">
             <div className="flex items-center gap-x-4">
               <div className={cn("p-2 w-fit rounded-md", tool.bgColor)}>
                 <tool.icon className={cn("w-8 h-8", tool.color)} />

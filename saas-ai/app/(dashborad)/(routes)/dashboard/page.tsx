@@ -61,7 +61,7 @@ export default function DashboardPage(){
 const router =useRouter();
   return (
     <>
-      <div className="mb-8 space-y-4">
+      <div className="mb-8 space-y-4 sm:pt-3">
         <h2 className="text-2xl md:text-4xl font-bold text-center first-letter:uppercase">
           Make Your Clouds Raining With <br /> Rain-AI
         </h2>

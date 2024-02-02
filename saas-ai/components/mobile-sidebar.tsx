@@ -29,7 +29,7 @@ export default function MobileSidebar() {
         <Menu className="md:hidden" />
         </Button>
       </SheetTrigger>
-      <SheetContent side={"left"} className="p-0">
+      <SheetContent side={"left"} className="p-0  text-white opacity-90">
         <Sidebar />
       </SheetContent>
     </Sheet>

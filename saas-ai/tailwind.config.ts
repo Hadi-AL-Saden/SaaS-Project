@@ -73,7 +73,7 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       screens: {
-        'sm': {'max': '639px'}
+        'sm': {'max': '766px'}
         // => @media (max-width: 639px) { ... }
       },
     },

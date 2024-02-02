@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider >
-      <html lang="ar">
+      <html lang="en">
         <body className={ cn('',inter.className) }>{children}</body>
       </html>
     </ClerkProvider>

@@ -14,6 +14,7 @@ import { ArrowRight,
         Code,
         FileQuestion
         } from "lucide-react"
+import Sidebar from "@/components/sidebar"
 
 const tools=[
   {
@@ -55,7 +56,7 @@ const tools=[
   {
     label: "PDF Assistant (Coming Soon)",
     icon: FileQuestion,
-    href: "#",
+    href: "/pdf",
     color: "text-red-500",
     bgColor:"bg-red-700/10",
   },

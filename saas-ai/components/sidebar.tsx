@@ -28,7 +28,6 @@ import { usePathname } from "next/navigation";
 
 import { Switch } from "@/components/ui/switch";
 
-import { Select } from "@/components/ui/select";
 
 const routs = [
   {
@@ -65,7 +64,7 @@ const routs = [
     label: "code Generation",
     icon: Code,
     href: "/code",
-    color: "text-green-500",
+    color: "text-green-700",
   },
   {
     label: "PDF Assistant (Coming Soon)",
@@ -82,7 +81,7 @@ export default function Sidebar() {
       <div className="space-y-4 py-4 flex flex-col h-full bg-[#181c2b] text-white">
         <div className="px-3 py-2 flex-1 ">
           <Link href={"/dashboard"} className="flex items-center pl-3 mb-14 ">
-            <div className="relative w-8 h-8 mr-4 ">
+            <div className="relative w-8 h-8 mr-4">
               <Image fill alt="Logo" src={"/Logo.png"} />
             </div>
             <h1 className={cn("text-xl font-bold", montserrat.className)}>
@@ -132,8 +131,10 @@ export default function Sidebar() {
               <Switch />
             </div>
           </div>
-          <div className="flex justify-center pt-4 h-full bottom-0 bg-red-500 text-black font-semibold    ">
-            Made with ❤️ by First-Road
+          <div className="flex justify-center pt-4 h-full bottom-0 bg-red-500/90 text-white font-semibold">
+          <p className=" hover:animate-ping">
+            Made with ❤️ by Hadi
+          </p>
           </div>
         </div>
       </div>

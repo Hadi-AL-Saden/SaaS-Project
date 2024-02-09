@@ -4,7 +4,7 @@ import axios from "axios";
 
 import Heading from "@/components/heading";
 
-import { MessageSquare } from "lucide-react";
+import { Code } from "lucide-react";
 
 import { useForm } from "react-hook-form";
 
@@ -37,8 +37,10 @@ import { cn } from "@/lib/utils";
 import UserAvatar from "@/components/user-avatar";
 
 import BotAvatar from "@/components/bot-avatar";
+import ReactMarkdown from 'react-markDown';
 
-export default function ConversationPage() {
+
+export default function CodePage() {
   const router = useRouter();
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
   const form = useForm<z.infer<typeof fromSchema>>({
@@ -72,15 +74,15 @@ export default function ConversationPage() {
   return (
     <div>
       <Heading
-        title="Conversation"
-        description="Ask Rain-AI anything you want"
-        icon={MessageSquare}
-        iconColor="text-violet-500"
-        bgColor="bg-violet-500/10"
+        title="Code Generation"
+        description="Generate code using descriptive text"
+        icon={Code}
+        iconColor="text-green-700"
+        bgColor="bg-green-700/10"
       />
 
-      <div className="px-4 lg:px-8 bg-green-500">
-        <div className=" flex ">
+      <div className="px-4 lg:px-8 ">
+        <div>
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
@@ -91,16 +93,16 @@ export default function ConversationPage() {
                   <FormItem className="col-span-12 lg:col-span-10">
                     <FormControl className="m-0 p-0">
                       <Input
-                        className="px-2 focus-visible:ring-2 ring-1 border-none ring-gray-100 focus-visible:ring-violet-300 ring-offset-2 hover:ring-offset-violet-200 font-mono text-gray-700"
+                        className="px-2 focus-visible:ring-2 ring-1 border-none ring-gray-100 focus-visible:ring-green-300 ring-offset-2 hover:ring-offset-green-200 font-mono text-gray-700"
                         disabled={isLoading}
-                        placeholder="Hi I'm Rain Chatbot How I Can Help you Today....? "
+                        placeholder="Simple toggle button using react hooks."
                         {...field}
                       />
                     </FormControl>
                   </FormItem>
                 )}
               />
-              <Button className="col-span-12 lg:col-span-2 sm:mt-5 lg:p-0 lg:m-0 bg-violet-400 hover:bg-violet-500">
+              <Button className="col-span-12 lg:col-span-2 sm:mt-5 lg:p-0 lg:m-0 bg-green-500 hover:bg-green-700">
                 Make It Rain
               </Button>
             </form>
@@ -124,13 +126,23 @@ export default function ConversationPage() {
                 message.role === "user" ? 'bg-white border border-gray-500/20 ' : ' bg-muted  '
                 )}
               >
-                <div className="">
+                <div >
 
                 {message.role === 'user' ? <UserAvatar/> : <BotAvatar/>}
                 </div>
-                <p className="text-md font-sans mt-2 ">
-                {message.content}
-                </p>
+                <ReactMarkdown components={{
+                  pre: ({ node, ...props }) => (
+                    <div className="overflow-auto lg:w-fit my-2 bg-black/10 p-2 rounded-lg">
+                      <pre {...props} />
+                    </div>
+                  ),
+                  code: ({ node, ...props }) => (
+                    <code className="bg-black/10 rounded-lg p-1" {...props} />
+                  )
+                }} className="text-sm overflow-hidden leading-7 sm:w-full">
+                  {message.content || ""}
+                </ReactMarkdown>
+
               </div>
             ))}
           </div>
